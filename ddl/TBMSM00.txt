@@ -1,0 +1,128 @@
+--**********************************************************************
+--**       TABLE   NAME   : TBMSM00                                  *  *
+--**                       供應商基本資料檔                          **
+--**       BOOK    MEMBER : MSM00RCD                                 **
+--**       RECORD  NAME   : DCLTBMSM00                                 **
+--**       CREATE         : 103/06/26                                 **
+--**       FORMID         :                                           **
+--**********************************************************************
+SET CURRENT SQLID = 'F321';
+  DROP   TABLESPACE DBMSMF.TBMSM00;
+  COMMIT;
+     CREATE
+      TABLESPACE TBMSM00
+         IN DBMSMF
+         USING STOGROUP F3TEST3
+         PRIQTY 14400
+         SECQTY 7200
+         BUFFERPOOL BP0
+         CCSID UNICODE
+         CLOSE NO
+     ;
+  COMMIT;
+--DROP   TABLE MS.TBMSM00;
+--COMMIT;
+CREATE TABLE MS.TBMSM00
+ (MSM00UID_MSM00      INT NOT NULL GENERATED ALWAYS AS IDENTITY   ,
+          COMPID_MSM00 VARCHAR (4) WITH DEFAULT '',
+          VENDORNO_MSM00 VARCHAR (10) WITH DEFAULT '',
+          COUNTRYID_MSM00 VARCHAR (10) WITH DEFAULT '',
+          CVENDORNAME_MSM00 VARCHAR (100) WITH DEFAULT '',
+          EVENDORNAME_MSM00 VARCHAR (100) WITH DEFAULT '',
+          ABBREVNAME_MSM00 VARCHAR (50) WITH DEFAULT '',
+          CAPITAL_MSM00 DECIMAL (13,0)  WITH DEFAULT 0 ,
+          CAPITALCRCY_MSM00 VARCHAR (5) WITH DEFAULT '',
+          OWNER_MSM00 VARCHAR (50) WITH DEFAULT '',
+          OLDVENDORNO_MSM00 VARCHAR (10) WITH DEFAULT '',
+          NEWVENDORNO_MSM00 VARCHAR (10) WITH DEFAULT '',
+          INVOICETYPE_MSM00 VARCHAR (2) WITH DEFAULT '',
+          RESPDEPT_MSM00 VARCHAR (6) WITH DEFAULT '',
+          REJUPDDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          REJCODE_MSM00 VARCHAR (2) WITH DEFAULT '',
+          REJSTARTDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          REJENDDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          REJREASON_MSM00 VARCHAR (500) WITH DEFAULT '',
+          REJPONO_MSM00 VARCHAR (20) WITH DEFAULT '',
+          REQDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          REQTIMES_MSM00 INT  WITH DEFAULT 0 ,
+          PODATE_MSM00 CHAR (8) WITH DEFAULT '',
+          POTIMES_MSM00 INT  WITH DEFAULT 0 ,
+          ATTACHMENT_MSM00 VARCHAR (20) WITH DEFAULT '',
+          STATUS_MSM00 VARCHAR (2) WITH DEFAULT '',
+          ISISSUE_MSM00 VARCHAR (1) WITH DEFAULT '',
+          ISQUOTE_MSM00 VARCHAR (1) WITH DEFAULT '',
+          ISPO_MSM00 VARCHAR (1) WITH DEFAULT '',
+          DATATYPE_MSM00 VARCHAR (2) WITH DEFAULT '',
+          MAILID_MSM00 VARCHAR (10) WITH DEFAULT '',
+          CREATEMAILDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          CONFIRMMAILDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          CREATEDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          CREATETIME_MSM00 CHAR (6) WITH DEFAULT '',
+          CREATEEMPLCOMP_MSM00 VARCHAR (4) WITH DEFAULT '',
+          CREATEEMPL_MSM00 VARCHAR (10) WITH DEFAULT '',
+          UPDATEDATE_MSM00 CHAR (8) WITH DEFAULT '',
+          UPDATETIME_MSM00 CHAR (6) WITH DEFAULT '',
+          UPDATEEMPLCOMP_MSM00 VARCHAR (4) WITH DEFAULT '',
+          UPDATEEMPL_MSM00 VARCHAR (10) WITH DEFAULT ''
+--    PRIMARY KEY(MSM00UID_MSM00)
+      )
+     IN DBMSMF.TBMSM00;
+------------------------------------------------------------------------
+--//建立INDEX TABLE TIMSM00 //
+    CREATE UNIQUE INDEX MS.TIMSM00A
+               ON MS.TBMSM00
+              (MSM00UID_MSM00   ASC)
+               USING STOGROUP F3TEST3
+               PRIQTY 72000    SECQTY  14400
+               CLOSE NO;
+    CREATE UNIQUE INDEX MS.TIMSM00B
+               ON MS.TBMSM00
+              (COMPID_MSM00     ASC,
+               VENDORNO_MSM00 ASC)
+               USING STOGROUP F3TEST3
+               PRIQTY 72000    SECQTY  14400
+               CLOSE NO;
+------------------------------------------------------------------------
+--//建立各欄位LABEL //
+LABEL ON MS.TBMSM00
+ (MSM00UID_MSM00				IS		'uid',
+          COMPID_MSM00			IS		'公司別',
+          VENDORNO_MSM00		IS		'供應商編號',
+          COUNTRYID_MSM00		IS		'國別',
+          CVENDORNAME_MSM00		IS		'中文供應商名稱',
+          EVENDORNAME_MSM00		IS		'英文供應商名稱',
+          ABBREVNAME_MSM00		IS		'公司簡稱',
+          CAPITAL_MSM00			IS		'登記資本額',
+          CAPITALCRCY_MSM00		IS		'登記資本額幣別',
+          OWNER_MSM00			IS		'公司負責人',
+          OLDVENDORNO_MSM00		IS		'原供應商編號',
+          NEWVENDORNO_MSM00		IS		'轉供應商編號',
+          INVOICETYPE_MSM00		IS		'開發票通知方式',
+          RESPDEPT_MSM00		IS		'承辦部門',
+          REJUPDDATE_MSM00		IS		'停權更新日',
+          REJCODE_MSM00			IS		'停權狀態',
+          REJSTARTDATE_MSM00	IS		'停權起始日',
+          REJENDDATE_MSM00		IS		'停權結束日',
+          REJREASON_MSM00		IS		'停權說明',
+          REJPONO_MSM00			IS		'違約案號',
+          REQDATE_MSM00			IS		'最近詢價日期',
+          REQTIMES_MSM00		IS		'詢價次數',
+          PODATE_MSM00			IS		'最近交易日期',
+          POTIMES_MSM00			IS		'總交易次數',
+          ATTACHMENT_MSM00		IS		'附件',
+          STATUS_MSM00			IS		'供應商狀態',
+          ISISSUE_MSM00			IS		'是否可詢',
+          ISQUOTE_MSM00			IS		'是否可報',
+          ISPO_MSM00			IS		'是否可訂購',
+          DATATYPE_MSM00		IS		'廠商資料區',
+          MAILID_MSM00			IS		'mpmail帳號',
+          CREATEMAILDATE_MSM00	IS		'C1建立mpmail日期',
+          CONFIRMMAILDATE_MSM00	IS		'供應商mpmail確認日期',
+          CREATEDATE_MSM00		IS		'建檔日期',
+          CREATETIME_MSM00		IS		'建檔時間',
+          CREATEEMPLCOMP_MSM00	IS		'建檔人員公司別',
+          CREATEEMPL_MSM00		IS		'建檔人員',
+          UPDATEDATE_MSM00		IS		'修改日期',
+          UPDATETIME_MSM00		IS		'修改時間',
+          UPDATEEMPLCOMP_MSM00	IS		'修改人員公司別',
+          UPDATEEMPL_MSM00		IS		'修改人員')

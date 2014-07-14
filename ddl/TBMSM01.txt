@@ -1,0 +1,113 @@
+--**********************************************************************
+--**       TABLE   NAME   : TBMSM01                                  *  *
+--**                       供應商部門資料檔                          **
+--**       BOOK    MEMBER : MSM01RCD                                 **
+--**       RECORD  NAME   : DCLTBMSM01                                 **
+--**       CREATE         : 103/06/26                                 **
+--**       FORMID         :                                           **
+--**********************************************************************
+SET CURRENT SQLID = 'F321';
+  DROP   TABLESPACE DBMSMF.TBMSM01;
+  COMMIT;
+     CREATE
+      TABLESPACE TBMSM01
+         IN DBMSMF
+         USING STOGROUP F3TEST3
+         PRIQTY 14400
+         SECQTY 7200
+         BUFFERPOOL BP0
+         CCSID UNICODE
+         CLOSE NO
+     ;
+  COMMIT;
+--DROP   TABLE MS.TBMSM01;
+--COMMIT;
+CREATE TABLE MS.TBMSM01
+ (MSM01UID_MSM01 INT  NOT NULL GENERATED ALWAYS AS IDENTITY,
+           MSM00UID_MSM01 INT  NOT NULL WITH DEFAULT 0 ,
+           COMPID_MSM01 VARCHAR (4) WITH DEFAULT '',
+           VENDORNO_MSM01 VARCHAR (10) WITH DEFAULT '',
+           ADTY_MSM01 VARCHAR (2) WITH DEFAULT '',
+           ISDEFAULT_MSM01 VARCHAR (1) WITH DEFAULT '',
+           AREAID_MSM01 VARCHAR (50) WITH DEFAULT '',
+           POSTCODE_MSM01 VARCHAR (5) WITH DEFAULT '',
+           ADDR_MSM01 VARCHAR (200) WITH DEFAULT '',
+           ADDRALL_MSM01 VARCHAR (200) WITH DEFAULT '',
+           TEL_MSM01 VARCHAR (20) WITH DEFAULT '',
+           FAX_MSM01 VARCHAR (20) WITH DEFAULT '',
+           TELEX_MSM01 VARCHAR (20) WITH DEFAULT '',
+           CONTACT_MSM01 VARCHAR (50) WITH DEFAULT '',
+           MOBILE_MSM01 VARCHAR (20) WITH DEFAULT '',
+           EMAIL_MSM01 VARCHAR (200) WITH DEFAULT '',
+           WEB_MSM01 VARCHAR (200) WITH DEFAULT '',
+           PUBLICCLASS_MSM01 VARCHAR (20) WITH DEFAULT '',
+           VENDORTYPE_MSM01 VARCHAR (2) WITH DEFAULT '',
+           CRCY_MSM01 VARCHAR (5) WITH DEFAULT '',
+           PAIDTYPE_MSM01 VARCHAR (2) WITH DEFAULT '',
+           BANKCODE_MSM01 VARCHAR (20) WITH DEFAULT '',
+           ACCOUNTNO_MSM01 VARCHAR (100) WITH DEFAULT '',
+           BANKNAME_MSM01 VARCHAR (200) WITH DEFAULT '',
+           BANKADDR_MSM01 VARCHAR (200) WITH DEFAULT '',
+           CREATEDATE_MSM01 CHAR (8) WITH DEFAULT '',
+           CREATETIME_MSM01 CHAR (6) WITH DEFAULT '',
+           CREATEEMPLCOMP_MSM01 VARCHAR (4) WITH DEFAULT '',
+           CREATEEMPL_MSM01 VARCHAR (10) WITH DEFAULT '',
+           UPDATEDATE_MSM01 CHAR (8) WITH DEFAULT '',
+           UPDATETIME_MSM01 CHAR (6) WITH DEFAULT '',
+           UPDATEEMPLCOMP_MSM01 VARCHAR (4) WITH DEFAULT '',
+           UPDATEEMPL_MSM01 VARCHAR (10) WITH DEFAULT ''
+--    PRIMARY KEY(MSM01UID_MSM01)
+      )
+     IN DBMSMF.TBMSM01;
+------------------------------------------------------------------------
+--//建立INDEX TABLE TIMSM01 //
+    CREATE UNIQUE INDEX MS.TIMSM01A
+               ON MS.TBMSM01
+              (MSM01UID_MSM01   ASC)
+               USING STOGROUP F3TEST3
+               PRIQTY 72000    SECQTY  14400
+               CLOSE NO;
+    CREATE UNIQUE INDEX MS.TIMSM01B
+               ON MS.TBMSM01
+              (COMPID_MSM01     ASC,
+			   VENDORNO_MSM01 ASC,
+               ADTY_MSM01 ASC)
+               USING STOGROUP F3TEST3
+               PRIQTY 72000    SECQTY  14400
+               CLOSE NO;
+------------------------------------------------------------------------
+--//建立各欄位LABEL //
+LABEL ON MS.TBMSM01
+	(MSM01UID_MSM01             IS		'uid',
+          MSM00UID_MSM01		IS		'msM00Uid',
+          COMPID_MSM01			IS		'公司別',
+          VENDORNO_MSM01		IS		'供應商編號',
+          ADTY_MSM01			IS		'編碼',
+          ISDEFAULT_MSM01		IS		'是否預設選項',
+          AREAID_MSM01			IS		'部門名稱',
+          POSTCODE_MSM01		IS		'郵遞區號',
+          ADDR_MSM01			IS		'地址',
+          ADDRALL_MSM01			IS		'地址(含縣市區)',
+          TEL_MSM01				IS		'電話',
+          FAX_MSM01				IS		'傳真',
+          TELEX_MSM01			IS		'電傳號碼',
+          CONTACT_MSM01			IS		'聯絡人',
+          MOBILE_MSM01			IS		'聯絡人手機',
+          EMAIL_MSM01			IS		'聯絡人電子信箱',
+          WEB_MSM01				IS		'網路位置',
+          PUBLICCLASS_MSM01		IS		'公開招標類別',
+          VENDORTYPE_MSM01		IS		'供應商屬性',
+          CRCY_MSM01			IS		'幣別',
+          PAIDTYPE_MSM01		IS		'付款方式',
+          BANKCODE_MSM01		IS		'受款銀行代碼',
+          ACCOUNTNO_MSM01		IS		'受款銀行帳戶',
+          BANKNAME_MSM01		IS		'受款銀行名稱',
+          BANKADDR_MSM01		IS		'受款銀行地址',
+          CREATEDATE_MSM01		IS		'建檔日期',
+          CREATETIME_MSM01		IS		'建檔時間',
+          CREATEEMPLCOMP_MSM01	IS		'建檔人員公司別',
+          CREATEEMPL_MSM01		IS		'建檔人員',
+          UPDATEDATE_MSM01		IS		'修改日期',
+          UPDATETIME_MSM01		IS		'修改時間',
+          UPDATEEMPLCOMP_MSM01	IS		'修改人員公司別',
+          UPDATEEMPL_MSM01		IS		'修改人員')

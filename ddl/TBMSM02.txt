@@ -1,0 +1,79 @@
+--**********************************************************************
+--**       TABLE   NAME   : TBMSM02                                  *  *
+--**                       供應商停權資料檔                          **
+--**       BOOK    MEMBER : MSM02RCD                                 **
+--**       RECORD  NAME   : DCLTBMSM02                                 **
+--**       CREATE         : 103/06/26                                 **
+--**       FORMID         :                                           **
+--**********************************************************************
+SET CURRENT SQLID = 'F321';
+  DROP   TABLESPACE DBMSMF.TBMSM02;
+  COMMIT;
+     CREATE
+      TABLESPACE TBMSM02
+         IN DBMSMF
+         USING STOGROUP F3TEST3
+         PRIQTY 14400
+         SECQTY 7200
+         BUFFERPOOL BP0
+         CCSID UNICODE
+         CLOSE NO
+     ;
+  COMMIT;
+--DROP   TABLE MS.TBMSM02;
+--COMMIT;
+CREATE TABLE MS.TBMSM02
+ (MSM02UID_MSM02 INT  NOT NULL GENERATED ALWAYS AS IDENTITY,
+          MSM00UID_MSM02 INT  NOT NULL WITH DEFAULT 0 ,
+          COMPID_MSM02 VARCHAR (4) WITH DEFAULT '',
+          VENDORNO_MSM02 VARCHAR (10) WITH DEFAULT '',
+          STARTDATE_MSM02 CHAR (8) WITH DEFAULT '',
+          ENDDATE_MSM02 CHAR (8) WITH DEFAULT '',
+          REJCODE_MSM02 VARCHAR (2) WITH DEFAULT '',
+          REJREASON_MSM02 VARCHAR (500) WITH DEFAULT '',
+          REJPONO_MSM02 VARCHAR (20) WITH DEFAULT '',
+          REJDEPT_MSM02 VARCHAR (6) WITH DEFAULT '',
+          ATTACHMENT_MSM02 VARCHAR (20) WITH DEFAULT '',
+          APPID_MSM02 VARCHAR (20) WITH DEFAULT '',
+          CREATEDATE_MSM02 CHAR (8) WITH DEFAULT '',
+          CREATETIME_MSM02 CHAR (6) WITH DEFAULT '',
+          CREATEEMPLCOMP_MSM02 VARCHAR (4) WITH DEFAULT '',
+          CREATEEMPL_MSM02 VARCHAR (10) WITH DEFAULT '',
+          UPDATEDATE_MSM02 CHAR (8) WITH DEFAULT '',
+          UPDATETIME_MSM02 CHAR (6) WITH DEFAULT '',
+          UPDATEEMPLCOMP_MSM02 VARCHAR (4) WITH DEFAULT '',
+          UPDATEEMPL_MSM02 VARCHAR (10) WITH DEFAULT ''
+--    PRIMARY KEY(MSM02UID_MSM02)
+      )
+     IN DBMSMF.TBMSM02;
+------------------------------------------------------------------------
+--//建立INDEX TABLE TIMSM02 //
+    CREATE UNIQUE INDEX MS.TIMSM02A
+               ON MS.TBMSM02
+              (MSM02UID_MSM02   ASC)
+               USING STOGROUP F3TEST3
+               PRIQTY 72000    SECQTY  14400
+               CLOSE NO;
+------------------------------------------------------------------------
+--//建立各欄位LABEL //
+LABEL ON MS.TBMSM02
+	(MSM02UID_MSM02				IS		'uid',
+          MSM00UID_MSM02		IS		'msM00Uid',
+          COMPID_MSM02			IS		'公司別',
+          VENDORNO_MSM02		IS		'供應商編號',
+          STARTDATE_MSM02		IS		'停權起始日',
+          ENDDATE_MSM02			IS		'停權結束日',
+          REJCODE_MSM02			IS		'停權狀態',
+          REJREASON_MSM02		IS		'停權說明',
+          REJPONO_MSM02			IS		'違約案號',
+          REJDEPT_MSM02			IS		'停權建議部門',
+          ATTACHMENT_MSM02		IS		'附件',
+          APPID_MSM02			IS		'APPID',
+          CREATEDATE_MSM02		IS		'建檔日期',
+          CREATETIME_MSM02		IS		'建檔時間',
+          CREATEEMPLCOMP_MSM02	IS		'建檔人員公司別',
+          CREATEEMPL_MSM02		IS		'建檔人員',
+          UPDATEDATE_MSM02		IS		'修改日期',
+          UPDATETIME_MSM02		IS		'修改時間',
+          UPDATEEMPLCOMP_MSM02	IS		'修改人員公司別',
+          UPDATEEMPL_MSM02		IS		'修改人員')
