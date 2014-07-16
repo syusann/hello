@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="ms">
+	<property name="erp.config.dir" value="../config/csc/ms" />
+	<property name="erp.classes.dir" value="../WEB-INF/classes/com/icsc/ms" />
+	<property name="local.config.dir" value="config/csc/ms" />
+	<property name="local.classes.dir" value="bin/com/icsc/ms" />
+	<property name="local.work.dir" value="work" />
+	<property name="local.waslogs.dir" value="waslogs" />
+	<property name="source.dir" value="src" />
+	<property name="javadoc.dir" value="docs" />
+	
+	<target name="copy-config" description="copy config from local to erp"  depends="clean" >
+		<mkdir dir="${erp.config.dir}" />
+		<copy includeemptydirs="false" todir="${erp.config.dir}">
+			<fileset dir="${local.config.dir}">
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="copy-classes" description="copy config from local to erp"  depends="clean" >
+		<copy includeemptydirs="false" todir="${erp.classes.dir}">
+			<fileset dir="${local.classes.dir}">
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="java-doc" description="generate documentation">
+	    <javadoc sourcepath="${source.dir}" destdir="${javadoc.dir}" encoding="UTF-8" charset="UTF-8" />
+  	</target>
+	
+	<target name="clean">
+		<delete dir="${erp.config.dir}" />
+	    <delete dir="${erp.classes.dir}" />
+	    <delete dir="${local.work.dir}" />
+		<delete dir="${local.waslogs.dir}" />
+	</target>
+	
+	<target depends="copy-config, copy-classes" name="all" />
+</project>

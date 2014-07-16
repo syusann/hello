@@ -1,0 +1,58 @@
+<page id='p' layout="fit">
+	<panel layout="vrow">
+		<row data="1,-1,0">
+			<form heading="MS作業" id="form1">
+				<formRow widthRate="20%,20%,20%,100:20%,100:20%">
+					<field width='95%' label="公司別" type="txt" id="compId" />
+					<field width='95%' label="供應商代號" type="txt" id="vendorNo" />
+					<field width='95%' label="類別" type="txt" id="adty"/>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="API：">
+						<field name="opt" type="radioBox" label="testConnection" value="0" checked="true"/>
+						<field name="opt" type="radioBox" label="getVendorName(取得供應商名稱)" value="1" checked="true"/>
+						<field name="opt" type="radioBox" label="getVendorNameExp" value="2"/>
+					</field>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="">
+						<field name="opt" type="radioBox" label="getVendorAbbrevName(取得供應商簡稱)" value="3"/>
+						<field name="opt" type="radioBox" label="getVendorAbbrevNameExp" value="4"/>
+						<field name="opt" type="radioBox" label="getVendoContryId(取得供應商國別)" value="5"/>
+					</field>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="">
+						<field name="opt" type="radioBox" label="getVendoContryIdExp" value="6"/>
+						<field name="opt" type="radioBox" label="isVendorExist(取得供應商是否存在)" value="7"/>
+						<field name="opt" type="radioBox" label="isVendorReject(取得供應商是否停權)" value="8"/>
+					</field>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="">
+						<field name="opt" type="radioBox" label="getVendoBean(取得供應商資料)" value="9"/>
+						<field name="opt" type="radioBox" label="getVendoBeanExp" value="10"/>
+						<field name="opt" type="radioBox" label="getVendoBean(取得供應商資料)編碼必輸" value="11"/>
+					</field>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="">
+						<field name="opt" type="radioBox" label="getVendoBeanExp" value="12"/>
+						<field name="opt" type="radioBox" label="getVendoPayBean(取得供應商付款資料)" value="13"/>
+						<field name="opt" type="radioBox" label="getVendoPayBeanExp(取得供應商付款資料)編碼必輸" value="14"/>
+					</field>
+				</formRow>
+				<formRow widthRate="100%">
+					<field type="adapt" label="">
+						<field name="opt" type="radioBox" label="getVendoPayBeans(取得供應商付款資料多筆)" value="15"/>
+						<field name="opt" type="radioBox" label="getVendoPayBeansExp" value="16"/>
+						<field name="opt" type="radioBox" label="getVendorDataType(取得供應商資料型態)" value="17"/>
+					</field>
+				</formRow>
+				<toolbar id='msg' init="class:msjcTestMSJCA01.welcome" msgWidth='600'>
+					<field label="供應商資料存取介面(msjcApiM01)" type="btn" id='excuteM01' onclick="class:msjcTestMSJCA01.excuteM01:compId,vendorNo,adty,form1"/>
+				</toolbar>
+			</form>
+		</row>
+	</panel>
+</page>

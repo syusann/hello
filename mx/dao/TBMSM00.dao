@@ -1,0 +1,57 @@
+#Meta 
+------------------------------
+project	 :  
+table    :  MS.TBMSM00
+package  :  com.icsc.ms.dao
+import   :  com.icsc.ms.dao.*;
+entity   :  msjcTBMSM00VO
+author   :  
+descript :  供應商基本資料檔
+version  :  2.0
+orderBy  :  
+database :  CSC
+
+#Field
+#name   	      dataType   	isKey?(y/n)   	   description   	field width   	     format   		 default   
+---------------------------------------------------------------------------------------------------
+msM00Uid		int		y		uid		9		identity		0
+compId		String		n		公司別		4		String		""
+vendorNo		String		n		供應商編號		10		String		""
+countryId		String		n		國別		10		String		""
+cVendorName		String		n		中文供應商名稱		100		String		""
+eVendorName		String		n		英文供應商名稱		100		String		""
+abbrevName		String		n		公司簡稱		50		String		""
+capital		BigDecimal		n		登記資本額		13,0		money		0
+capitalCrcy		String		n		登記資本額幣別		5		String		""
+owner		String		n		公司負責人		50		String		""
+oldVendorNo		String		n		原供應商編號		10		String		""
+newVendorNo		String		n		轉供應商編號		10		String		""
+invoiceType		String		n		開發票通知方式		2		String		""
+respDept		String		n		承辦部門		6		String		""
+rejUpdDate		String		n		停權更新日		8		date		""
+rejCode		String		n		停權狀態		2		String		""
+rejStartDate		String		n		停權起始日		8		date		""
+rejEndDate		String		n		停權結束日		8		date		""
+rejReason		String		n		停權說明		500		String		""
+rejPoNo		String		n		違約案號		20		String		""
+reqDate		String		n		最近詢價日期		8		date		""
+reqTimes		int		n		詢價次數		6		int		0
+poDate		String		n		最近交易日期		8		date		""
+poTimes		int		n		總交易次數		6		int		0
+attachment		String		n		附件		20		String		""
+status		String		n		供應商狀態		2		String		""
+isIssue		String		n		是否可詢		1		String		""
+isQuote		String		n		是否可報		1		String		""
+isPO		String		n		是否可訂購		1		String		""
+dataType		String		n		廠商資料區		2		String		""
+mailId		String		n		mpmail帳號		10		String		""
+createMailDate		String		n		C1建立mpmail日期		8		date		""
+confirmMailDate		String		n		供應商mpmail確認日期		8		date		""
+createDate		String		n		建檔日期		8		date		""
+createTime		String		n		建檔時間		6		time		""
+createEmplComp		String		n		建檔人員公司別		4		String		""
+createEmpl		String		n		建檔人員		10		String		""
+updateDate		String		n		修改日期		8		date		""
+updateTime		String		n		修改時間		6		time		""
+updateEmplComp		String		n		修改人員公司別		4		String		""
+updateEmpl		String		n		修改人員		10		String		""

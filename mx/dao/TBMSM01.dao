@@ -1,0 +1,49 @@
+#Meta 
+------------------------------
+project	 :  
+table    :  MS.TBMSM01
+package  :  com.icsc.ms.dao
+import   :  com.icsc.ms.dao.*;
+entity   :  msjcTBMSM01VO
+author   :  
+descript :  供應商部門資料檔
+version  :  2.0
+orderBy  :  
+database :  CSC
+
+#Field
+#name   	      dataType   	isKey?(y/n)   	   description   	field width   	     format   		 default   
+---------------------------------------------------------------------------------------------------
+msM01Uid		int		y		uid		9		identity		0
+msM00Uid		int		y		msM00Uid		9		int		0
+compId		String		n		公司別		4		String		""
+vendorNo		String		n		供應商編號		10		String		""
+adty		String		n		編碼		2		String		""
+isDefault		String		n		是否預設選項		1		String		""
+areaId		String		n		部門名稱		50		String		""
+postCode		String		n		郵遞區號		5		String		""
+addr		String		n		地址		200		String		""
+addrAll		String		n		地址(含縣市區)		200		String		""
+tel		String		n		電話		20		String		""
+fax		String		n		傳真		20		String		""
+telex		String		n		電傳號碼		20		String		""
+contact		String		n		聯絡人		50		String		""
+mobile		String		n		聯絡人手機		20		String		""
+email		String		n		聯絡人電子信箱		200		String		""
+web		String		n		網路位置		200		String		""
+publicClass		String		n		公開招標類別		20		String		""
+vendorType		String		n		供應商屬性		2		String		""
+crcy		String		n		幣別		5		String		""
+paidType		String		n		付款方式		2		String		""
+bankCode		String		n		受款銀行代碼		20		String		""
+accountNo		String		n		受款銀行帳戶		100		String		""
+bankName		String		n		受款銀行名稱		200		String		""
+bankAddr		String		n		受款銀行地址		200		String		""
+createDate		String		n		建檔日期		8		date		""
+createTime		String		n		建檔時間		6		time		""
+createEmplComp		String		n		建檔人員公司別		4		String		""
+createEmpl		String		n		建檔人員		10		String		""
+updateDate		String		n		修改日期		8		date		""
+updateTime		String		n		修改時間		6		time		""
+updateEmplComp		String		n		修改人員公司別		4		String		""
+updateEmpl		String		n		修改人員		10		String		""
