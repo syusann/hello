@@ -1,0 +1,3 @@
+Hello $name!  Welcome to Velocity!
+Hello ${name}!  Welcome to Velocity!
+Hello ${name.substring(0,3).toLowerCase()}!  Welcome to Velocity!

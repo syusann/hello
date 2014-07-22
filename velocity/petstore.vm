@@ -1,0 +1,14 @@
+$petList.size() Pets on Sale!
+  We are proud to offer these fine pets
+  at these amazing prices.  This month only,
+  choose from:
+  #foreach( $pet in $petList )
+    $foreach.count> $velocityCount. $pet.name for only $pet.price #if ($velocity.hasNext), #end
+    #if($velocityCount == $petList.size()) 
+        last1 
+    #end
+    #if($foreach.last) 
+        last2 
+    #end
+  #end
+   Call Today!

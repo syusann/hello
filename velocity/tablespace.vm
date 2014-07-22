@@ -1,0 +1,23 @@
+--**********************************************************************
+--**       TABLE   NAME   : ${sysId}.${tableName}                                  *  *
+--**                       ${tableDesc}                          **
+--**       BOOK    MEMBER : ${tablePostfix}DCL                                 **
+--**       RECORD  NAME   : DCL${tableName}                                  **
+--**       CREATE         : 103/06/26                                 **
+--**       FORMID         :                                           **
+--**********************************************************************
+SET CURRENT SQLID = 'F321';
+  DROP   TABLESPACE DB${sysId}MF.${tableName};
+  COMMIT;
+     CREATE
+      TABLESPACE ${tableName}
+         IN DB${sysId}MF
+         USING STOGROUP F3TEST3
+         PRIQTY 14400
+         SECQTY 7200
+         BUFFERPOOL BP0
+         CCSID UNICODE
+         CLOSE NO
+     ;
+  COMMIT;
+  
