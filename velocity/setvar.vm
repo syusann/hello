@@ -1,0 +1,51 @@
+<html>
+<body>
+#set( $foo = "Velocity" )
+Hello $foo World!
+</body>
+<html>
+
+#set( $criteria = ["name", "address"] )
+#foreach( $criterion in $criteria )
+    $criterion
+#end
+
+#set($customer.Address = "Kaohsiung")
+$customer.Address, Taiwan <-------xxxxxxxxxx
+
+<input type="text" name="email" value="$email"/>
+<input type="text" name="email" value="${email}"/>
+<input type="text" name="email" value="$!email"/>
+<input type="text" name="email" value="$!{email}"/>
+
+#if($a==1)true enough#{else}no way!#end
+
+#set( $monkey = $bill ) ## variable reference
+#set( $monkey.Friend = "monica" ) ## string literal
+#set( $monkey.Blame = $whitehouse.Leak ) ## property reference
+#set( $monkey.Plan = $spindoctor.weave($web) ) ## method reference
+#set( $monkey.Number = 123 ) ##number literal
+#set( $monkey.Say = ["Not", $my, "fault"] ) ## ArrayList
+#set( $monkey.Map = {"banana" : "good", "roast beef" : "bad"}) ## Map
+
+## This is a single line comment.
+
+This is text that is outside the multi-line comment.
+Online visitors can see it.
+
+#*
+ Thus begins a multi-line comment. Online visitors won't
+ see this text because the Velocity Templating Engine will
+ ignore it.
+*#
+
+Here is text outside the multi-line comment; it is visible.
+
+#**
+This is a VTL comment block and
+may be used to store such information
+as the document author and versioning
+information:
+@author
+@version 5
+*#
