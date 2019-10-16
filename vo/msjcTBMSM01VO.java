@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* msjcTBMSM01VO		DAOTool Ver 10.0112 (INPUT FILE VERSION:2.0)  $Id: msjcTBMSM01VO.java,v 1.3 2014/06/26 01:14:08 I26998 Exp $
+/* msjcTBMSM01VO		DAOTool Ver 10.0112 (INPUT FILE VERSION:2.0)  $Id$
 /*----------------------------------------------------------------------------*/
 /* author : 
 /* system : 

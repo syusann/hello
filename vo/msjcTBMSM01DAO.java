@@ -26,7 +26,7 @@ import com.icsc.ms.dao.*  ;
  * Table Description : 供應商部門資料檔
  * Value Object Name : msjcTBMSM01VO
  * </pre>
- * @version $Id: msjcTBMSM01DAO.java,v 1.3 2014/06/25 03:30:06 I26998 Exp $
+ * @version $Id$
  * @since msjcTBMSM01VO - 103/06/25
  * @author 
  */
