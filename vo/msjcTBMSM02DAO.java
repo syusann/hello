@@ -26,7 +26,7 @@ import com.icsc.ms.dao.*  ;
  * Table Description : 供應商停權資料檔
  * Value Object Name : msjcTBMSM02VO
  * </pre>
- * @version $Id: 8d892a5d197572ee6979e33010626a2d85fb1c62 $
+ * @version $Id$
  * @since msjcTBMSM02VO - 103/06/25
  * @author 
  */
