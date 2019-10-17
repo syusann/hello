@@ -27,7 +27,7 @@ import com.icsc.ms.dao.*  ;
  * Value Object Name : msjcTBMSM00VO
  * </pre>
  * @version $Id$
- * @since msjcTBMSM00VO - 108/10/26
+ * @since msjcTBMSM00VO - 108/10/26 $Format:%H$
  * @author 
  */
 public class msjcTBMSM00DAO extends dejcCommonDAO {
