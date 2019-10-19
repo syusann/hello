@@ -15,7 +15,7 @@ import com.icsc.dpms.de.dez.structs.func.dezcTransactionPool;
 import com.icsc.dpms.ds.dsjccom;
 
 public class msjcCrossDB {
-	public final static String CLASS_VERSION = "$Id$";
+	public final static String CLASS_VERSION = "$Id: 2a3dba6220bc37e450fbef61c291dc4e45f3714b $";
 	public final static String AppId = "msjcCrossDB";
 	
 	public static List<Map> doQurery(dsjccom dsCom,dezcCriteria criteria,String tableName,String orderStr,int pageNum,int count) throws Exception {
