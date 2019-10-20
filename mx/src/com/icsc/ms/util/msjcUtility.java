@@ -4,7 +4,7 @@ import com.icsc.dpms.de.dejc308;
 import com.icsc.dpms.de.dejc309;
 
 public class msjcUtility {
-	public final static String CLASS_VERSION = "$Id: ee6853909d9b2b3a9fa75f81f43c33c3f6ef41e3 $";
+	public final static String CLASS_VERSION = "$Id$";
 
 	/** 取得目前日期(當地格式YYYYMMDD) * */
 	public static String currentDate() {

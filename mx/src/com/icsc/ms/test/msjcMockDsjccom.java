@@ -15,7 +15,7 @@ import com.icsc.dpms.ds.dsjccom;
 * Add class description here.
 *
 * @author I21239
-* @version $Id: be7116a0439bb950489305fb88c954b9039b013e $
+* @version $Id$
 */
 public class msjcMockDsjccom {
 	public final static String CLASS_VERSION = "$Revision: 1.4 $ $Date: 2014/01/02 08:42:49 $";
